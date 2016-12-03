@@ -164,13 +164,13 @@ void main(void *bootstrap_info)
 	kmap_setup();
     threads_setup();
     threads_activated = 1;
-//	int ret_code = threads_setup();
-//    if (ret_code != 0)
-//        printf("Attempt to start threads was unsuccessfull.\n");
-//    else
-//    {
-//        threads_activated = 1;
-//    }
+	int ret_code = threads_setup();
+    if (ret_code != 0)
+        printf("Attempt to start threads was unsuccessfull.\n");
+    else
+    {
+        threads_activated = 1;
+    }
 
 	enable_ints();
 
@@ -180,19 +180,17 @@ void main(void *bootstrap_info)
 //	test_alloc();
 //	test_kmap();
 //	printf("Tests Finished\n");
-
-    create_thread(foo1);
-    create_thread(foo);
-//    if (ret_code == 0)
-//    {
-//        int thread_ret_code;
-//        thread_ret_code = create_thread(foo1);
-//        if (thread_ret_code != 0)
-//            printf("Attempt to run new thread was unsuccesfull.\n");
-//        thread_ret_code = create_thread(foo);
-//        if (thread_ret_code != 0)
-//            printf("Attempt to run new thread was unsuccesfull.\n");
-//    }
+    
+    if (ret_code == 0)
+    {
+        int thread_ret_code;
+        thread_ret_code = create_thread(foo1);
+        if (thread_ret_code != 0)
+            printf("Attempt to run new thread was unsuccesfull.\n");
+        thread_ret_code = create_thread(foo);
+        if (thread_ret_code != 0)
+            printf("Attempt to run new thread was unsuccesfull.\n");
+    }
 
 
 	while (1);
