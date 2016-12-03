@@ -25,8 +25,8 @@ static atomic_int acquired_locks;
 
 void lock()
 {
-    acquired_locks ++;
     disable_ints();
+    acquired_locks ++;
 }
 
 void unlock()
